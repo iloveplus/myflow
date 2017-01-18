@@ -27,6 +27,7 @@ li{
     width: 900px;
     margin: 0 auto;
     height: 100%;
+    position: relative;
 }
 .header .brand{
     float: left;
@@ -79,4 +80,18 @@ li{
 }
 .detail .btn.left{
     margin-right: 100px;
+}
+.sub-header .img{
+    position: absolute;
+    width: 300px;
+    top: 20px;
+    height: 280px;
+    right: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+.sub-header .img img{
+    width: 100%;
+    height: 100%;
 }
