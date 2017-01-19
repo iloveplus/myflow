@@ -58,3 +58,7 @@
 # 版权申明： #
 
 本功能基于myflow-min二次开发，仅为个人学习使用，如商用请遵循myflow-min相关版权规则。
+
+# 参考： #
+
+1. https://www.draw.io/
