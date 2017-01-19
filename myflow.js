@@ -747,7 +747,7 @@
     };
 
     myflow.path = function (o, r, from, to, guid, ec,dots,id) {
-        var _this = this, _r = r, _o = $.extend(true, {}, myflow.config.path), _path, _arrow, _text, _textPos = _o.text.textPos, _ox, _oy, _from = from, _to = to, _id = id || 'path'
+        var _this = this, _r = r, _o = $.extend(true, {}, myflow.config.path), _path,_markpath, _arrow, _text, _textPos = _o.text.textPos, _ox, _oy, _from = from, _to = to, _id = id || 'path'
             + myflow.util.nextId(), _dotList, _autoText = true; _o.lineID = guid; oec = (ec > 0 ? (parseInt(ec) == 1 ? 25 : parseInt(ec) * 9 + 22) : 0);
 
         // 点
@@ -1061,6 +1061,8 @@
         // 初始化操作
         _o = $.extend(true, _o, o);
         _path = _r.path(_o.attr.path.path).attr(_o.attr.path);
+        _markpath=_r.path(_o.attr.path.path)
+            .attr({fill: "none",stroke: "white","stroke-miterlimit": 10,"stroke-width": 14,"-webkit-tap-highlight-color": "rgba(0, 0, 0, 0)","visibility":"hidden","pointer-events": "stroke","cursor": "crosshair"});
         _arrow = _r.path(_o.attr.arrow.path).attr(_o.attr.arrow);
 
         _dotList = new dotList();
@@ -1089,7 +1091,7 @@
         refreshpath(); // 初始化路径
 
         // 事件处理--------------------
-        $([_path.node, _arrow.node, _text.node]).bind('click', function () {
+        $([_path.node,_markpath.node, _arrow.node, _text.node]).bind('click', function () {
             if (!myflow.config.editable)
                 return;
             $(_r).trigger('click', _this);
@@ -1237,6 +1239,7 @@
         this.remove = function () {
             _dotList.remove();
             _path.remove();
+            _markpath.remove();
             _arrow.remove();
             _text.remove();
             try {
@@ -1261,6 +1264,9 @@
             var p = _dotList.toPathString(), mid = _dotList.midDot().pos();
             _path.attr({
                 path: p[0]
+            });
+            _markpath.attr({
+                path:p[0]
             });
             _arrow.attr({
                 path: p[1]

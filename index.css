@@ -52,22 +52,11 @@ body {
 	padding: 6px;
 }
 
-#pointer {
-	background-repeat: no-repeat;
-	background-position: center;
+#task,#state,#path,#pointer  {
+	background: no-repeat center;
 }
 
-#path {
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-#task {
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-#state {
-	background-repeat: no-repeat;
-	background-position: center;
+path[stroke="#ffffff"]{
+	visibility:hidden;
+	pointer-events: stroke;
 }
