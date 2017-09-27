@@ -1378,7 +1378,7 @@
         $(document).keydown(function (arg) {
             if (!myflow.config.editable)
                 return;
-            if (arg.keyCode == 46) {
+            if (arg.keyCode == 46 || (arg.originalEvent && arg.originalEvent.code == 'Backspace')) {
                 var c = $(_r).data('currNode');
                 if (c) {
                     if (c.getId().substring(0, 4) == 'rect') {
@@ -1506,6 +1506,13 @@
             }
 
         })
+
+        // 取消描点
+        document.oncontextmenu = function(e){
+            $("#pointer").click();
+            $("#path").click();
+            return false;
+        }
 
         $("#myflow").click(function(e){
             if(myflow.config.moving.flag){
