@@ -5,8 +5,8 @@
 3. 统一封装了保存，发布，添加路径，添加状态，删除路径，删除状态，点击路径和点击状态相关接口
 4. 添加了两个状态间可多线连接配置 {allowStateMutiLine:true}
 5. 修复了线条不易选中的bug
-6. <font color="red">点击鼠标右键可清除正在描绘的路径</font>
-7. <font color="red">修复了mac上点击删除无效的bug</font>
+6. <font color=red>点击鼠标右键可清除正在描绘的路径</font>
+7. <font color=red>修复了mac上点击删除无效的bug</font>
 
 # 本功能还需完善的功能： #
 
